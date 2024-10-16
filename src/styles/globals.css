@@ -110,3 +110,38 @@
     @apply text-[32px] leading-[44px] font-semibold;
   }
 }
+
+
+.dot-indicator li {
+  background: #848484;
+  border-radius: 100%;
+}
+
+.dot-indicator li:hover {
+  background: #000000;
+}
+
+.dot-indicator li.slick-active {
+  background: #ffffff;
+}
+
+.slick-slider {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.slick-list {
+  position: relative;
+  display: block !important;
+  overflow: hidden;
+  width: 100%;
+}
+.slick-track {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: flex;
+  overflow: hidden;
+}
