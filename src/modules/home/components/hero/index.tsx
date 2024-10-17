@@ -1,9 +1,8 @@
 "use client"
 import React, { useRef } from "react"
-import { MdChevronRight } from "react-icons/md"
 import Slider from "react-slick"
 
-const Hero = () => {
+const Hero: React.FC = () => {
   const images: string[] = [
     "https://farak.co/cdn/shop/files/07-08-2024_FARAK00313_copy_1357701d-f2f8-499e-9388-4aff7c390b8b.jpg?v=1724322019&width=2200",
     "https://farak.co/cdn/shop/files/07-08-2024_FARAK00546.jpg?v=1724274874&width=2400",
@@ -12,7 +11,7 @@ const Hero = () => {
     "https://farak.co/cdn/shop/files/Karamkaar_Banner_3200x1800_947ca85b-3342-4c9e-beb1-b2a17467887d.png?v=1694550420&width=2800",
     "https://farak.co/cdn/shop/files/Viraam_Banner_3200x1800_6e890e39-88d3-4e81-a029-202a82dbe8d8.png?v=1694550418&width=2800",
   ]
-  const sliderRef = useRef(null)
+  const sliderRef = useRef<Slider>(null)
 
   const settings = {
     dots: true,
@@ -26,18 +25,7 @@ const Hero = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     draggable: true,
-    appendDots: (
-      dots:
-        | string
-        | number
-        | boolean
-        | React.ReactElement<any, string | React.JSXElementConstructor<any>>
-        | Iterable<React.ReactNode>
-        | React.ReactPortal
-        | React.PromiseLikeOfReactNode
-        | null
-        | undefined
-    ) => (
+    appendDots: (dots: React.ReactNode) => (
       <div
         style={{
           display: "flex",

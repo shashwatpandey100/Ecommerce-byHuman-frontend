@@ -73,6 +73,9 @@ export default async function Home({
         <ul className="flex flex-col gap-x-6">
           <FeaturedProducts collections={collections} region={region} />
         </ul>
+        <div className="px-6 h-max">
+        <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 bg-[#f7f4f0] px-6 sm:px-16 h-[350px] w-full"></div>
+        </div>
       </div>
     </>
   )

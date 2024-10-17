@@ -38,7 +38,7 @@ const Top = () => {
 
   const selectedString = strings[currentIndex]
   return (
-    <div className="h-[40px] w-full flex gap-16 items-center justify-center bg-[#4D3B35] text-white text-[11px] font-[300] uppercase">
+    <div className="h-[40px] w-full flex gap-16 items-center justify-center bg-black text-white text-[11px] font-[300] uppercase">
       <div className="w-[600px] relative flex items-center justify-center">
         <button onClick={prev} className="absolute left-0">
           <SlArrowLeft className="text-[12px]" />
