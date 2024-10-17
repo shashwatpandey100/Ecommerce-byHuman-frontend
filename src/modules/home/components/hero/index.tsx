@@ -68,17 +68,13 @@ const Hero: React.FC = () => {
     ),
   }
 
-
   return (
     <div className="h-max w-full relative bg-ui-bg-subtle">
       <div className={`relative h-full overflow-hidden`}>
         <Slider ref={sliderRef} {...settings}>
           {images &&
             images.map((image, index) => (
-              <div
-                key={index}
-                className={`h-[600px] overflow-hidden`}
-              >
+              <div key={index} className={`h-[600px] overflow-hidden`}>
                 <div
                   className={`h-full overflow-hidden bg-cover bg-no-repeat bg-center`}
                   style={{
