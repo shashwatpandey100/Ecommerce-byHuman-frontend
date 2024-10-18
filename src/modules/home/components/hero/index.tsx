@@ -1,6 +1,6 @@
 "use client"
-import React, { useRef } from "react"
-import Slider from "react-slick"
+import React from "react"
+import { motion } from "framer-motion"
 
 const Hero: React.FC = () => {
   const images: string[] = [
@@ -11,79 +11,60 @@ const Hero: React.FC = () => {
     "https://farak.co/cdn/shop/files/Karamkaar_Banner_3200x1800_947ca85b-3342-4c9e-beb1-b2a17467887d.png?v=1694550420&width=2800",
     "https://farak.co/cdn/shop/files/Viraam_Banner_3200x1800_6e890e39-88d3-4e81-a029-202a82dbe8d8.png?v=1694550418&width=2800",
   ]
-  const sliderRef = useRef<Slider>(null)
 
-  const settings = {
-    dots: true,
-    dotsClass: "slick-dots dot-indicator",
-    arrows: false,
-    infinite: true,
-    autoplay: true,
-    pauseOnHover: true,
-    autoplaySpeed: 7000,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    draggable: true,
-    appendDots: (dots: React.ReactNode) => (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "max-content",
-          backgroundColor: "transparent",
-          position: "absolute",
-          left: "0",
-          right: "0",
-          margin: "auto",
-          bottom: "20px",
-          borderRadius: "20px",
-          padding: "10px",
-        }}
-      >
-        <ul
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "5px",
-          }}
-        >
-          {dots}
-        </ul>
-      </div>
-    ),
-    customPaging: () => (
-      <span
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          cursor: "pointer",
-          width: "7px",
-          height: "7px",
-        }}
-      ></span>
-    ),
+  const [current, setCurrent] = React.useState(0)
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => {
+        const nextIndex = (prev + 1) % images.length;
+        if (nextIndex === 0) {
+          setCurrent(0);
+        }
+        return nextIndex;
+      });
+    }, 5000);
+  
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  const setCurrentImage = (index: number) => {
+    if (index >= 0 && index < images.length) {
+      setCurrent(index)
+    }
   }
 
   return (
     <div className="h-max w-full relative bg-ui-bg-subtle">
       <div className={`relative h-full overflow-hidden`}>
-        <Slider ref={sliderRef} {...settings}>
-          {images &&
-            images.map((image, index) => (
-              <div key={index} className={`h-[600px] overflow-hidden`}>
-                <div
-                  className={`h-full overflow-hidden bg-cover bg-no-repeat bg-center`}
-                  style={{
-                    backgroundImage: `url(${image})`,
-                  }}
-                ></div>
-              </div>
-            ))}
-        </Slider>
+        <motion.div
+          initial={{ filter: "brightness(0)" }}
+          animate={{ filter: "brightness(1)" }}
+          exit={{ filter: "brightness(0)" }}
+          transition={{ duration: 0.5 }}
+          style={{
+            backgroundImage: `url(${images[current]})`,
+          }}
+          className="h-[620px] w-full bg-cover bg-center bg-no-repeat overflow-hidden"
+          key={current}
+        ></motion.div>
+        <div className="h-max w-max rounded-full absolute bottom-12 right-12 flex gap-[4px]">
+          {images.map((_, index) => (
+            <span
+              className={`h-[14px] aspect-square ${
+                current === index ? "border" : "border-none"
+              } border-white flex items-center justify-center`}
+            >
+              <button
+                key={index}
+                onClick={() => setCurrentImage(index)}
+                className={`aspect-square w-[7px] relative ${
+                  current === index ? "bg-white" : "bg-white/70"
+                }`}
+              ></button>
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   )

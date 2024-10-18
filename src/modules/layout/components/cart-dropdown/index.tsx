@@ -80,10 +80,15 @@ const CartDropdown = ({
       <Popover className="relative h-full">
         <Popover.Button className="h-full">
           <LocalizedClientLink
-            className="hover:text-ui-fg-base flex gap-1.5"
+            className="hover:text-ui-fg-base flex gap-1.5 relative"
             href="/cart"
             data-testid="nav-cart-link"
-          ><BsHandbag className="mt-1 text-[20px]" />{`(${totalItems})`}</LocalizedClientLink>
+          >
+            <BsHandbag className="mt-1 text-[20px]" />
+            <span className="absolute -top-2 -right-2 bg-[#4D3B35] rounded-full text-[10px] text-white h-[16px] aspect-square flex items-center justify-center">
+              {totalItems}
+            </span>
+          </LocalizedClientLink>
         </Popover.Button>
         <Transition
           show={cartDropdownOpen}
@@ -97,7 +102,7 @@ const CartDropdown = ({
         >
           <Popover.Panel
             static
-            className="hidden small:block absolute top-[calc(100%+1px)] right-0 bg-white border-x border-b border-gray-200 w-[420px] text-ui-fg-base"
+            className="hidden small:block absolute p-2 top-[calc(100%+4px)] -right-[14px] border bg-white border-x border-b border-gray-200 w-[420px] text-ui-fg-base"
             data-testid="nav-cart-dropdown"
           >
             <div className="p-4 flex items-center justify-center">
@@ -112,7 +117,7 @@ const CartDropdown = ({
                     })
                     .map((item) => (
                       <div
-                        className="grid grid-cols-[122px_1fr] gap-x-4"
+                        className="grid grid-cols-[110px_1fr] gap-x-0"
                         key={item.id}
                         data-testid="cart-item"
                       >

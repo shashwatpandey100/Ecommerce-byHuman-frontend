@@ -19,7 +19,7 @@ export default async function Footer() {
               className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
               data-testid="nav-store-link"
             >
-              <img src="https://res.cloudinary.com/dw0bwetr1/image/upload/v1729146605/download_1_fqtqkd.png" alt="byHumans" className="w-max object-cover object-center h-[40px]" />
+              <img src="https://res.cloudinary.com/dw0bwetr1/image/upload/v1729230045/logo-white_alcnph.png" alt="byHumans" className="w-max object-cover object-center h-[40px]" />
             </LocalizedClientLink>
           </div>
           <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3">
