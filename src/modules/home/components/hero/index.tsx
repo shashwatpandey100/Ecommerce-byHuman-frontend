@@ -54,6 +54,7 @@ const Hero: React.FC = () => {
               className={`h-[14px] aspect-square ${
                 current === index ? "border" : "border-none"
               } border-white flex items-center justify-center`}
+              key={index}
             >
               <button
                 key={index}

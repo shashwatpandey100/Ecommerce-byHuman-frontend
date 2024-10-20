@@ -18,7 +18,7 @@ const Top = () => {
     return () => {
       clearInterval(interval)
     }
-  }, [])
+  }, [strings.length])
 
   const next = () => {
     if (currentIndex === strings.length - 1) {
