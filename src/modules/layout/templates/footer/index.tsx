@@ -1,153 +1,181 @@
-import { Text, clx } from "@medusajs/ui"
-
-import { getCategoriesList, getCollectionsList } from "@lib/data"
-
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import MedusaCTA from "@modules/layout/components/medusa-cta"
+import { getCategoriesList, getCollectionsList } from "@lib/data"
 
 export default async function Footer() {
   const { collections } = await getCollectionsList(0, 6)
-  const { product_categories } = await getCategoriesList(0, 6)
 
   return (
-    <footer className="w-full bg-black text-white">
-      <div className="content-container flex flex-col w-full">
-        <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between pt-20 pb-10">
-          <div>
-          <LocalizedClientLink
-              href="/"
-              className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
-              data-testid="nav-store-link"
+    <>
+      <div className="h-max bg-black w-full flex flex-col sm:flex-row sm:justify-between gap-6 sm:gap-24 text-white text-[1.4rem] p-8 sm:p-16">
+        <h3 className="w-1/3 font-[300] uppercase">
+          Free shipping on all orders. <br /> Designed by stylist, for the
+          stylish.
+        </h3>
+        <p className="flex flex-col gap-6 w-1/2">
+          <span className="text-[1rem] font-[300]">
+            We want you to love everything about getting Away—which is why we
+            offer free returns and exchanges on unused items for the first 100
+            days.
+          </span>
+          <LocalizedClientLink href="#" className="uppercase text-[0.95rem]">
+            Exclusions apply. <span className="underline">Learn more</span>
+          </LocalizedClientLink>
+        </p>
+      </div>
+      <footer className="w-full bg-[#fff6ee] h-max relative flex flex-col">
+        <div className="h-[calc(100%-78px)] w-full grid grid-cols-4 py-16 px-20">
+          <div className="flex flex-col gap-1">
+            <h3 className="uppercase text-[1.05rem] font-[500] text-black mb-3">
+              Shop
+            </h3>
+            <LocalizedClientLink
+              href={`/collections/`}
+              className="hover:underline text-[0.95rem] font-[300] text-black/70"
             >
-              <img src="https://res.cloudinary.com/dw0bwetr1/image/upload/v1729230045/logo-white_alcnph.png" alt="byHumans" className="w-max object-cover object-center h-[40px]" />
+              Shop all
+            </LocalizedClientLink>
+            {collections &&
+              collections.map((collection) => (
+                <LocalizedClientLink
+                  key={collection.id}
+                  href={`/collections/${collection.handle}`}
+                  className="hover:underline text-[0.95rem] font-[300] text-black/70"
+                >
+                  {collection.title}
+                </LocalizedClientLink>
+              ))}
+            <LocalizedClientLink
+              href={`/collections/`}
+              className="hover:underline text-[0.95rem] font-[300] text-black/70"
+            >
+              Beanies
+            </LocalizedClientLink>
+            <LocalizedClientLink
+              href={`/collections/`}
+              className="hover:underline text-[0.95rem] font-[300] text-black/70"
+            >
+              Sun Hats
             </LocalizedClientLink>
           </div>
-          <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3">
-            {product_categories && product_categories?.length > 0 && (
-              <div className="flex flex-col gap-y-2">
-                <span className="txt-small-plus txt-ui-fg-base">
-                  Categories
-                </span>
-                <ul className="grid grid-cols-1 gap-2" data-testid="footer-categories">
-                  {product_categories?.slice(0, 6).map((c) => {
-                    if (c.parent_category) {
-                      return
-                    }
-
-                    const children =
-                      c.category_children?.map((child) => ({
-                        name: child.name,
-                        handle: child.handle,
-                        id: child.id,
-                      })) || null
-
-                    return (
-                      <li
-                        className="flex flex-col gap-2 text-ui-fg-subtle txt-small"
-                        key={c.id}
-                      >
-                        <LocalizedClientLink
-                          className={clx(
-                            "hover:text-ui-fg-base",
-                            children && "txt-small-plus"
-                          )}
-                          href={`/categories/${c.handle}`}
-                          data-testid="category-link"
-                        >
-                          {c.name}
-                        </LocalizedClientLink>
-                        {children && (
-                          <ul className="grid grid-cols-1 ml-3 gap-2">
-                            {children &&
-                              children.map((child) => (
-                                <li key={child.id}>
-                                  <LocalizedClientLink
-                                    className="hover:text-ui-fg-base"
-                                    href={`/categories/${child.handle}`}
-                                    data-testid="category-link"
-                                  >
-                                    {child.name}
-                                  </LocalizedClientLink>
-                                </li>
-                              ))}
-                          </ul>
-                        )}
-                      </li>
-                    )
-                  })}
-                </ul>
-              </div>
-            )}
-            {collections && collections.length > 0 && (
-              <div className="flex flex-col gap-y-2">
-                <span className="txt-small-plus txt-ui-fg-base">
-                  Collections
-                </span>
-                <ul
-                  className={clx(
-                    "grid grid-cols-1 gap-2 text-ui-fg-subtle txt-small",
-                    {
-                      "grid-cols-2": (collections?.length || 0) > 3,
-                    }
-                  )}
-                >
-                  {collections?.slice(0, 6).map((c) => (
-                    <li key={c.id}>
-                      <LocalizedClientLink
-                        className="hover:text-ui-fg-base"
-                        href={`/collections/${c.handle}`}
-                      >
-                        {c.title}
-                      </LocalizedClientLink>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            <div className="flex flex-col gap-y-2">
-              <span className="txt-small-plus txt-ui-fg-base">Medusa</span>
-              <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
-                <li>
-                  <a
-                    href="https://github.com/medusajs"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
-                  >
-                    GitHub
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://docs.medusajs.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
-                  >
-                    Documentation
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://github.com/medusajs/nextjs-starter-medusa"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
-                  >
-                    Source code
-                  </a>
-                </li>
-              </ul>
-            </div>
+          <div className="flex flex-col gap-1">
+            <h3 className="uppercase text-[1.05rem] font-[500] text-black mb-3">
+              About
+            </h3>
+            <LocalizedClientLink
+              href={`/collections/`}
+              className="hover:underline text-[0.95rem] font-[300] text-black/70"
+            >
+              About Us
+            </LocalizedClientLink>
+            <LocalizedClientLink
+              href={`/collections/`}
+              className="hover:underline text-[0.95rem] font-[300] text-black/70"
+            >
+              Sustainability
+            </LocalizedClientLink>
+            <LocalizedClientLink
+              href={`/collections/`}
+              className="hover:underline text-[0.95rem] font-[300] text-black/70"
+            >
+              Cookie Policy
+            </LocalizedClientLink>
+            <LocalizedClientLink
+              href={`/collections/`}
+              className="hover:underline text-[0.95rem] font-[300] text-black/70"
+            >
+              Careers
+            </LocalizedClientLink>
+            <LocalizedClientLink
+              href={`/collections/`}
+              className="hover:underline text-[0.95rem] font-[300] text-black/70"
+            >
+              Blogs
+            </LocalizedClientLink>
+          </div>
+          <div className="flex flex-col gap-1">
+            <h3 className="uppercase text-[1.05rem] font-[500] text-black mb-3">
+              Get Help
+            </h3>
+            <LocalizedClientLink
+              href={`/collections/`}
+              className="hover:underline text-[0.95rem] font-[300] text-black/70"
+            >
+              FAQs
+            </LocalizedClientLink>
+            <LocalizedClientLink
+              href={`/collections/`}
+              className="hover:underline text-[0.95rem] font-[300] text-black/70"
+            >
+              Order Tracking
+            </LocalizedClientLink>
+            <LocalizedClientLink
+              href={`/collections/`}
+              className="hover:underline text-[0.95rem] font-[300] text-black/70"
+            >
+              Make a Return
+            </LocalizedClientLink>
+            <LocalizedClientLink
+              href={`/collections/`}
+              className="hover:underline text-[0.95rem] font-[300] text-black/70"
+            >
+              Contact Us
+            </LocalizedClientLink>
+            <LocalizedClientLink
+              href={`/collections/`}
+              className="hover:underline text-[0.95rem] font-[300] text-black/70"
+            >
+              Warranty
+            </LocalizedClientLink>
+          </div>
+          <div className="flex flex-col gap-1">
+            <h3 className="uppercase text-[1.05rem] font-[500] text-black mb-3">
+              Social Links
+            </h3>
+            <LocalizedClientLink
+              href={`/collections/`}
+              className="hover:underline text-[0.95rem] font-[300] text-black/70"
+            >
+              X
+            </LocalizedClientLink>
+            <LocalizedClientLink
+              href={`/collections/`}
+              className="hover:underline text-[0.95rem] font-[300] text-black/70"
+            >
+              Linkedin
+            </LocalizedClientLink>
+            <LocalizedClientLink
+              href={`/collections/`}
+              className="hover:underline text-[0.95rem] font-[300] text-black/70"
+            >
+              Instagram
+            </LocalizedClientLink>
+            <LocalizedClientLink
+              href={`/collections/`}
+              className="hover:underline text-[0.95rem] font-[300] text-black/70"
+            >Facebook</LocalizedClientLink>
+            <LocalizedClientLink
+              href={`/collections/`}
+              className="hover:underline text-[0.95rem] font-[300] text-black/70"
+            >
+              Twitter
+            </LocalizedClientLink>
           </div>
         </div>
-        <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
-          <Text className="txt-compact-small">
-            © {new Date().getFullYear()} Medusa Store. All rights reserved.
-          </Text>
-          <MedusaCTA />
+        <div className="h-[78px] w-full border-t border-black/50 flex justify-between items-center px-16 text-[0.85rem]">
+          <p className="flex gap-3 text-[0.85rem] font-[500]">
+            <LocalizedClientLink href="#" className="hover:underline">
+              Privacy Policy
+            </LocalizedClientLink>
+            <LocalizedClientLink href="#" className="hover:underline">
+              Terms and Conditions
+            </LocalizedClientLink>
+            <LocalizedClientLink href="#" className="hover:underline">
+              Help
+            </LocalizedClientLink>
+          </p>
+          <p className="font-[500]">© 2024 ByHuman.</p>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   )
 }

@@ -1,15 +1,15 @@
 "use client"
 import React from "react"
 import { motion } from "framer-motion"
+import Link from "next/link"
 
 const Hero: React.FC = () => {
   const images: string[] = [
-    "https://farak.co/cdn/shop/files/07-08-2024_FARAK00313_copy_1357701d-f2f8-499e-9388-4aff7c390b8b.jpg?v=1724322019&width=2200",
-    "https://farak.co/cdn/shop/files/07-08-2024_FARAK00546.jpg?v=1724274874&width=2400",
-    "https://farak.co/cdn/shop/files/24.png?v=1718272364&width=2800",
-    "https://farak.co/cdn/shop/files/Fall_Winter_Drop_2_Banner_Desktop1234.png?v=1702988829&width=2800",
-    "https://farak.co/cdn/shop/files/Karamkaar_Banner_3200x1800_947ca85b-3342-4c9e-beb1-b2a17467887d.png?v=1694550420&width=2800",
-    "https://farak.co/cdn/shop/files/Viraam_Banner_3200x1800_6e890e39-88d3-4e81-a029-202a82dbe8d8.png?v=1694550418&width=2800",
+    "https://puls-img.chanel.com/c_limit,w_1920/q_auto:good,f_auto,dpr_1.1/1696856045284-amandlaportrait2jpg_5293x4320.jpg",
+    "https://www.chanel.com/puls-img/c_limit,w_3200/q_auto:good,dpr_auto,f_auto/1702311840485-lucydjpg.jpg",
+    "https://www.chanel.com/puls-img/c_limit,w_2880/q_auto:good,dpr_auto,f_auto/1727862338409-homepagecorpoonedesktop2jpg_1620x2880.jpg",
+    "https://puls-img.chanel.com/c_limit,w_1920/q_auto:good,f_auto,dpr_1.1/1696595585251-jennyportait2jpg_7057x5760.jpg",
+    "https://www.chanel.com/images/q_auto:good,f_auto,fl_lossy,dpr_1.1/w_2048/FSH-1722605053603-08alllookd.jpg",
   ]
 
   const [current, setCurrent] = React.useState(0)
@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
         }
         return nextIndex;
       });
-    }, 5000);
+    }, 10000);
   
     return () => clearInterval(interval);
   }, [images.length]);
@@ -43,7 +43,7 @@ const Hero: React.FC = () => {
           exit={{ filter: "brightness(0)" }}
           transition={{ duration: 0.5 }}
           style={{
-            backgroundImage: `url(${images[current]})`,
+            backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)), url(${images[current]})`,
           }}
           className="h-[620px] w-full bg-cover bg-center bg-no-repeat overflow-hidden"
           key={current}
@@ -64,6 +64,10 @@ const Hero: React.FC = () => {
               ></button>
             </span>
           ))}
+        </div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-3 items-center justify-center">
+          <h3 className="uppercase text-[1.8rem] font-[400] text-white tracking-[0.45rem]">HYMN OF MEMORIES</h3>
+          <Link href="store" className="border border-white bg-white hover:bg-transparent text-[0.95rem] text-black/80 hover:text-white transition-all duration-200 px-6 py-2 uppercase">Explore</Link>
         </div>
       </div>
     </div>

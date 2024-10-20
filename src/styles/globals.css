@@ -111,6 +111,13 @@
   }
 }
 
+* {
+  font-family: Helvetica, Sans-Serif;
+}
+
+.font-times {
+  font-family: "Times New Roman", Times, serif;
+}
 
 .dot-indicator li {
   background: #848484;

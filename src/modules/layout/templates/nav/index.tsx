@@ -7,6 +7,7 @@ import SideMenu from "@modules/layout/components/side-menu"
 import Top from "./Top"
 import { LuSearch } from "react-icons/lu"
 import { BsHandbag } from "react-icons/bs"
+import { PiShoppingCartLight } from "react-icons/pi";
 import { LiaUserSolid } from "react-icons/lia"
 
 export default async function Nav() {
@@ -15,8 +16,8 @@ export default async function Nav() {
   return (
     <>
       <Top />
-      <div className={`sticky top-0 inset-x-0 z-50 bg-white text-black group`}>
-        <div className="relative h-[88px] mx-auto duration-200">
+      <div className={`sticky top-0 inset-x-0 z-50 border-b bg-white text-black group`}>
+        <div className="h-[78px] mx-auto duration-200">
           <nav className="content-container txt-xsmall-plus flex items-center justify-between w-full h-full text-small-regular">
             <div className="flex-1 basis-0 h-full flex items-center">
               <div className="h-full">
@@ -57,7 +58,7 @@ export default async function Nav() {
                     href="/cart"
                     data-testid="nav-cart-link"
                   >
-                    <BsHandbag />
+                    <PiShoppingCartLight className="mt-1 text-[24px]" />
                     <span className="absolute -top-2 -right-2 bg-[#4D3B35] rounded-full text-[10px] text-white h-[16px] aspect-square flex items-center justify-center">
                       0
                     </span>

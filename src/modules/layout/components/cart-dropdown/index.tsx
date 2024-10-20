@@ -13,6 +13,7 @@ import LineItemPrice from "@modules/common/components/line-item-price"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Thumbnail from "@modules/products/components/thumbnail"
 import { BsHandbag } from "react-icons/bs"
+import { PiShoppingCartLight } from "react-icons/pi"
 
 const CartDropdown = ({
   cart: cartState,
@@ -84,7 +85,7 @@ const CartDropdown = ({
             href="/cart"
             data-testid="nav-cart-link"
           >
-            <BsHandbag className="mt-1 text-[20px]" />
+            <PiShoppingCartLight className="mt-1 text-[24px]" />
             <span className="absolute -top-2 -right-2 bg-[#4D3B35] rounded-full text-[10px] text-white h-[16px] aspect-square flex items-center justify-center">
               {totalItems}
             </span>
@@ -191,7 +192,7 @@ const CartDropdown = ({
                   </div>
                   <LocalizedClientLink href="/cart" passHref>
                     <Button
-                      className="w-full"
+                      className="w-full rounded-none"
                       size="large"
                       data-testid="go-to-cart-button"
                     >
