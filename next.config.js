@@ -14,16 +14,12 @@ const nextConfig = withStoreConfig({
         hostname: "localhost",
       },
       {
-        protocol: "https",
-        hostname: "medusa-public-images.s3.eu-west-1.amazonaws.com",
+        protocol: "http",
+        hostname: "res.cloudinary.com",
       },
       {
         protocol: "https",
-        hostname: "medusa-server-testing.s3.amazonaws.com",
-      },
-      {
-        protocol: "https",
-        hostname: "medusa-server-testing.s3.us-east-1.amazonaws.com",
+        hostname: "res.cloudinary.com",
       },
     ],
   },

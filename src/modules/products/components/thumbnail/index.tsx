@@ -50,6 +50,7 @@ const ImageOrPlaceholder = ({
   image,
   size,
 }: Pick<ThumbnailProps, "size"> & { image?: string }) => {
+  console.log(image);
   return image ? (
     <Image
       src={image}
