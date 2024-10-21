@@ -13,13 +13,23 @@ type MyInformationProps = {
   customer: Omit<Customer, "password_hash">
 }
 
+interface FormState {
+  error: boolean
+  success: boolean
+}
+
 const ProfileName: React.FC<MyInformationProps> = ({ customer }) => {
   const [successState, setSuccessState] = React.useState(false)
 
-  const [state, formAction] = useFormState(updateCustomerName, {
-    error: false,
-    success: false,
-  })
+  const [state, formAction] = useFormState<FormState>(
+    updateCustomerName as unknown as (
+      state: FormState
+    ) => FormState | Promise<FormState>,
+    {
+      error: false,
+      success: false,
+    }
+  )
 
   const clearState = () => {
     setSuccessState(false)

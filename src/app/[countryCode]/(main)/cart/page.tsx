@@ -34,7 +34,15 @@ const fetchCart = async () => {
     cart.items = enrichedItems as LineItem[]
   }
 
-  cart.checkout_step = cart && getCheckoutStep(cart)
+  const checkoutStep = getCheckoutStep(cart)
+  if (
+    checkoutStep === undefined ||
+    !["address", "payment", "delivery"].includes(checkoutStep)
+  ) {
+    cart.checkout_step = "address" // or any default value that makes sense
+  } else {
+    cart.checkout_step = checkoutStep as "address" | "payment" | "delivery"
+  }
 
   return cart
 }

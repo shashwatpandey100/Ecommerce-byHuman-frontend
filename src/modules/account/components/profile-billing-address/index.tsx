@@ -15,6 +15,11 @@ type MyInformationProps = {
   regions: Region[]
 }
 
+interface FormState {
+  error: boolean
+  success: boolean
+}
+
 const ProfileBillingAddress: React.FC<MyInformationProps> = ({
   customer,
   regions,
@@ -32,12 +37,17 @@ const ProfileBillingAddress: React.FC<MyInformationProps> = ({
     )
   }, [regions])
 
-  const [successState, setSuccessState] = React.useState(false)
+  const [successState, setSuccessState] = React.useState<boolean>(false)
 
-  const [state, formAction] = useFormState(updateCustomerBillingAddress, {
-    error: false,
-    success: false,
-  })
+  const [state, formAction] = useFormState<FormState>(
+    updateCustomerBillingAddress as unknown as (
+      state: FormState
+    ) => FormState | Promise<FormState>,
+    {
+      error: false,
+      success: false,
+    }
+  )
 
   const clearState = () => {
     setSuccessState(false)

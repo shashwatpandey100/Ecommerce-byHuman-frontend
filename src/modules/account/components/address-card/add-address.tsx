@@ -3,7 +3,7 @@
 import { Region } from "@medusajs/medusa"
 import { Plus } from "@medusajs/icons"
 import { Button, Heading } from "@medusajs/ui"
-import { useEffect, useState } from "react"
+import { ReactNode, useEffect, useState } from "react"
 import { useFormState } from "react-dom"
 
 import useToggleState from "@lib/hooks/use-toggle-state"
@@ -126,7 +126,7 @@ const AddAddress = ({ region }: { region: Region }) => {
             </div>
             {formState.error && (
               <div className="text-rose-500 text-small-regular py-2" data-testid="address-error">
-                {formState.error}
+                {formState.error as ReactNode}
               </div>
             )}
           </Modal.Body>
