@@ -45,13 +45,13 @@ export default async function ProductPreview({
         />
         <div className="flex flex-col txt-compact-medium mt-4">
           <Text
-            className="text-black/70 uppercase font-[500] text-[0.8rem]"
+            className="text-black/80 font-[500] text-[13px]"
             data-testid="product-title"
           >
             {productPreview.title}
           </Text>
-          <div className="flex items-center gap-x-2 text-black text-[0.75rem] font-[600]">
-            FROM {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
+          <div className="flex items-center gap-x-2 text-black/80 font-[400] text-[12px] leading-[1rem]">
+            {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
           </div>
         </div>
       </div>

@@ -38,13 +38,13 @@ const SideMenu = ({ regions }: { regions: Region[] | null }) => {
                 as={Fragment}
                 enter="transition ease-out duration-150"
                 enterFrom="opacity-0"
-                enterTo="opacity-100 backdrop-blur-[45px]"
+                enterTo="opacity-100"
                 leave="transition ease-in duration-150"
-                leaveFrom="opacity-100 backdrop-blur-[45px]"
+                leaveFrom="opacity-100"
                 leaveTo="opacity-0"
               >
-                <Popover.Panel className="flex flex-col fixed top-0 left-0 w-full pr-4 sm:pr-0 sm:w-1/3 2xl:w-1/4 sm:min-w-min h-[100vh] z-30 inset-x-0 text-sm text-black backdrop-blur-[45px]">
-                  <div data-testid="nav-menu-popup" className="flex flex-col h-full bg-[rgba(255,255,255,0.5)] justify-between p-6">
+                <Popover.Panel className="flex flex-col fixed top-0 left-0 w-full pr-4 sm:pr-0 sm:w-1/3 2xl:w-1/4 sm:min-w-min h-[100vh] z-30 inset-x-0 text-sm text-black border-r border-black/5">
+                  <div data-testid="nav-menu-popup" className="flex flex-col h-full bg-[rgba(255,255,255,1)] justify-between p-6">
                     <div className="flex justify-end" id="xmark">
                       <button data-testid="close-menu-button" onClick={close}>
                         <XMark />
@@ -86,7 +86,7 @@ const SideMenu = ({ regions }: { regions: Region[] | null }) => {
                         />
                       </div>
                       <Text className="flex justify-between txt-compact-small">
-                        © {new Date().getFullYear()} Medusa Store. All rights
+                        © {new Date().getFullYear()} ByHuman. All rights
                         reserved.
                       </Text>
                     </div>

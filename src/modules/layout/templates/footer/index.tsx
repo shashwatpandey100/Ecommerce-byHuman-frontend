@@ -6,12 +6,12 @@ export default async function Footer() {
 
   return (
     <>
-      <div className="h-max bg-black w-full flex flex-col sm:flex-row sm:justify-between gap-6 sm:gap-24 text-white text-[1.4rem] p-8 sm:p-16">
-        <h3 className="w-1/3 font-[300] uppercase">
+      <div className="h-max bg-black w-full flex flex-col sm:flex-row sm:justify-between gap-6 sm:gap-24 text-white text-[1.4rem] px-8 py-16 sm:px-16 sm:py-16">
+        <h3 className="w-full sm:w-1/3 font-[300] uppercase">
           Free shipping on all orders. <br /> Designed by stylist, for the
           stylish.
         </h3>
-        <p className="flex flex-col gap-6 w-1/2">
+        <p className="flex flex-col gap-6 w-full sm:w-1/2">
           <span className="text-[1rem] font-[300]">
             We want you to love everything about getting Away—which is why we
             offer free returns and exchanges on unused items for the first 100
@@ -23,7 +23,7 @@ export default async function Footer() {
         </p>
       </div>
       <footer className="w-full bg-[#fff6ee] h-max relative flex flex-col">
-        <div className="h-[calc(100%-78px)] w-full grid grid-cols-4 py-16 px-20">
+        <div className="h-[calc(100%-78px)] w-full grid grid-cols-2 md:grid-cols-4 gap-y-8 py-16 px-8 sm:px-20">
           <div className="flex flex-col gap-1">
             <h3 className="uppercase text-[1.05rem] font-[500] text-black mb-3">
               Shop
@@ -157,12 +157,12 @@ export default async function Footer() {
               href={`/collections/`}
               className="hover:underline text-[0.95rem] font-[300] text-black/70"
             >
-              Twitter
+              Youtube
             </LocalizedClientLink>
           </div>
         </div>
-        <div className="h-[78px] w-full border-t border-black/50 flex justify-between items-center px-16 text-[0.85rem]">
-          <p className="flex gap-3 text-[0.85rem] font-[500]">
+        <div className="min-h-[78px] w-full border-t border-black/50 flex flex-col sm:flex-row justify-between items-center py-6 gap-y-4 px-4 sm:px-16 text-[0.85rem]">
+          <p className="w-full sm:w-max flex justify-between px-16 sm:px-0 gap-3 text-[0.85rem] font-[500]">
             <LocalizedClientLink href="#" className="hover:underline">
               Privacy Policy
             </LocalizedClientLink>

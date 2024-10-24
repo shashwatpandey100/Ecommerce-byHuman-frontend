@@ -5,7 +5,7 @@ import Nav from "@modules/layout/templates/nav"
 
 const Layout: React.FC<{
   children: React.ReactNode
-}> = ({ children }) => {
+}> = async ({ children }) => {
   return (
     <div>
       <Nav />

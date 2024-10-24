@@ -28,7 +28,7 @@ export default function CategoryTemplate({
   if (!category || !countryCode) notFound()
 
   return (
-    <div className="flex flex-col small:flex-row small:items-start py-6 content-container" data-testid="category-container">
+    <div className="flex flex-col small:flex-row small:items-start pt-6 pb-24 content-container" data-testid="category-container">
       <RefinementList sortBy={sortBy || "created_at"} data-testid="sort-by-container" />
       <div className="w-full">
         <div className="flex flex-row mb-8 text-2xl-semi gap-4">
