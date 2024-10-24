@@ -123,7 +123,7 @@ export default async function Home({
                     Our new limited-edition collection features rich pebbled
                     leather or leather texture, and hardware with a luxe
                     tortoise-effect. Crafted for luxurious journeys, wherever
-                    you're headed.
+                    you&apos;re headed.
                   </p>
                   <p className="mt-5 text-[#000] font-[500] text-[12px] uppercase flex gap-3 items-center group">
                     Shop The Café Edit
