@@ -2,37 +2,13 @@ import { Text, clx } from "@medusajs/ui"
 import * as AccordionPrimitive from "@radix-ui/react-accordion"
 import React from "react"
 
-type AccordionItemProps = AccordionPrimitive.AccordionItemProps & {
-  title: string
-  subtitle?: string
-  description?: string
-  required?: boolean
-  tooltip?: string
-  forceMountContent?: true
-  headingSize?: "small" | "medium" | "large"
-  customTrigger?: React.ReactNode
-  complete?: boolean
-  active?: boolean
-  triggerable?: boolean
-  children: React.ReactNode
-}
-
-type AccordionProps =
-  | (AccordionPrimitive.AccordionSingleProps &
-      React.RefAttributes<HTMLDivElement>)
-  | (AccordionPrimitive.AccordionMultipleProps &
-      React.RefAttributes<HTMLDivElement>)
-
-const Accordion: React.FC<AccordionProps> & {
-  Item: React.FC<AccordionItemProps>
-} = ({ children, ...props }) => {
+const Accordion = ({ children, ...props }) => {
   return (
-    /* @ts-expect-error */
     <AccordionPrimitive.Root {...props}>{children}</AccordionPrimitive.Root>
   )
 }
 
-const Item: React.FC<AccordionItemProps> = ({
+const Item = ({
   title,
   subtitle,
   description,
@@ -45,7 +21,6 @@ const Item: React.FC<AccordionItemProps> = ({
   ...props
 }) => {
   return (
-    /* @ts-expect-error */
     <AccordionPrimitive.Item
       {...props}
       className={clx(

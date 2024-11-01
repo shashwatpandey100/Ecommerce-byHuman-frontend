@@ -31,9 +31,12 @@ const ProductTabs = ({ product }: ProductTabsProps) => {
           <Accordion.Item
             key={i}
             title={tab.label}
-             className="border-t border-[#9fa0a5]"
+            subtitle=""
+            description="" 
+            className="border-t border-[#9fa0a5]"
             headingSize="medium"
             value={tab.label}
+            triggerable={false} 
           >
             {tab.component}
           </Accordion.Item>
