@@ -137,8 +137,8 @@ export default function ProductActions({
 
   return (
     <>
-      <div className="flex flex-col gap-y-2" ref={actionsRef}>
-        <div>
+      <div className="flex flex-col gap-y-2 font-mono" ref={actionsRef}>
+        <div className="pb-8 border-b border-[#9fa0a5]">
           {product.variants.length > 1 && (
             <div className="flex flex-col gap-y-4">
               {(product.options || []).map((option) => {
@@ -155,7 +155,6 @@ export default function ProductActions({
                   </div>
                 )
               })}
-              <Divider />
             </div>
           )}
         </div>
@@ -166,7 +165,7 @@ export default function ProductActions({
           onClick={handleAddToCart}
           disabled={!inStock || !variant || !!disabled || isAdding}
           variant="primary"
-          className="w-full h-10"
+          className="w-full h-10 rounded-none py-3 min-h-[48px] mt-3"
           isLoading={isAdding}
           data-testid="add-product-button"
         >

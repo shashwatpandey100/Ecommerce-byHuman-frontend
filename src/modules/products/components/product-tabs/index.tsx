@@ -25,12 +25,13 @@ const ProductTabs = ({ product }: ProductTabsProps) => {
   ]
 
   return (
-    <div className="w-full">
-      <Accordion type="multiple">
+    <div className="w-full mb-8">
+      <Accordion type="multiple" className="">
         {tabs.map((tab, i) => (
           <Accordion.Item
             key={i}
             title={tab.label}
+             className="border-t border-[#9fa0a5]"
             headingSize="medium"
             value={tab.label}
           >

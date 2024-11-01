@@ -102,13 +102,13 @@ const CartDropdown = ({
                         })
                         .map((item) => (
                           <div
-                            className="grid grid-cols-[110px_1fr] gap-x-0"
+                            className="grid grid-cols-[110px_1fr] gap-x-4"
                             key={item.id}
                             data-testid="cart-item"
                           >
                             <LocalizedClientLink
                               href={`/products/${item.variant.product.handle}`}
-                              className="h-24"
+                              className="max-h-[96px] overflow-hidden"
                             >
                               <Thumbnail
                                 thumbnail={item.thumbnail}

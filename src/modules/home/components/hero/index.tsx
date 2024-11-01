@@ -43,17 +43,17 @@ const Hero: React.FC = () => {
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
           }}
-          className="bg-cover w-full h-[450px] md:h-[680px]"
+          className="bg-cover w-full h-[450px] md:h-[620px]"
         ></div>
-        <div className="bg-[#fff8f0] flex items-center justify-center w-full h-[450px] md:h-[680px]">
-          <div className="p-16 w-full flex flex-col items-center justify-center">
-            <p className="text-[#111] italic text-[2.5rem] font-[300] font-times">
+        <div className="bg-[#fff8f0] flex items-center justify-center w-full h-max md:h-[620px]">
+          <div className="px-8 py-16 md:p-16 w-full flex flex-col items-center justify-center">
+            <p className="text-[#111] text-center md:text-start italic text-[2.5rem] font-[300] font-times">
               Mix, match, and save
             </p>
-            <h3 className="font-times text-[4.5rem] leading-[5rem] text-center">
+            <h3 className="mt-6 md:mt-0 font-times text-[3rem] md:text-[4.5rem] leading-[3.5rem] md:leading-[5rem] text-center">
               Up to INR 500 off
             </h3>
-            <p className="text-[#111] font-mono mb-8 text-center mt-[1rem]">
+            <p className="text-[#111] font-mono mb-8 md:text-center mt-[1rem]">
               Spend over INR 2,000 and enjoy INR 500 off your purchase. <br />Happy shopping!
             </p>
             <Link

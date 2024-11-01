@@ -162,7 +162,7 @@ export default async function Footer() {
           </div>
         </div>
         <div className="min-h-[78px] w-full border-t border-black/50 flex flex-col sm:flex-row justify-between items-center py-6 gap-y-4 px-4 sm:px-16 text-[0.85rem]">
-          <p className="w-full sm:w-max flex justify-between px-16 sm:px-0 gap-3 text-[0.85rem] font-[500]">
+          <p className="w-full sm:w-max flex justify-between gap-3 text-[0.85rem] font-[500]">
             <LocalizedClientLink href="#" className="hover:underline">
               Privacy Policy
             </LocalizedClientLink>

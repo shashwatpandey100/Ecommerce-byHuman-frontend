@@ -42,6 +42,8 @@ export default async function RelatedProducts({
 
     params.is_giftcard = false
 
+    params.limit = 4
+
     return params
   }
 

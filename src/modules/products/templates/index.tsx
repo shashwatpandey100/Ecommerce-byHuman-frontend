@@ -30,33 +30,33 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
   return (
     <>
       <div
-        className="content-container flex flex-col small:flex-row small:items-start py-6 relative"
+        className="flex flex-col small:flex-row small:items-start relative bg-[#fbf7f45a]"
         data-testid="product-container"
       >
-        <div className="flex flex-col small:sticky small:top-48 small:py-0 small:max-w-[300px] w-full py-8 gap-y-6">
-          <ProductInfo product={product} />
-          <ProductTabs product={product} />
-        </div>
-        <div className="block w-full relative">
+        <div className="block w-[860px] overflow-hidden sticky top-[60px]">
           <ImageGallery images={product?.images || []} />
         </div>
-        <div className="flex flex-col small:sticky small:top-48 small:py-0 small:max-w-[300px] w-full py-8 gap-y-12">
+        <div className="flex flex-col w-[calc(100vw-860px)] px-6 gap-y-12">
+          <div className="flex flex-col w-full py-8 pb-8 gap-y-6">
+            <ProductInfo product={product} />
+          </div>
           <ProductOnboardingCta />
           <Suspense
             fallback={
               <ProductActions
-                disabled={true}
-                product={product}
-                region={region}
+              disabled={true}
+              product={product}
+              region={region}
               />
             }
           >
             <ProductActionsWrapper id={product.id} region={region} />
           </Suspense>
+          <ProductTabs product={product} />
         </div>
       </div>
       <div
-        className="content-container my-16 small:my-32"
+        className="content-container py-16 small:py-32 bg-[#fbf7f45a]"
         data-testid="related-products-container"
       >
         <Suspense fallback={<SkeletonRelatedProducts />}>

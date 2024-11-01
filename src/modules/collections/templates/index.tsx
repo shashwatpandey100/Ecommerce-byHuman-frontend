@@ -20,11 +20,13 @@ export default function CollectionTemplate({
   const pageNumber = page ? parseInt(page) : 1
 
   return (
-    <div className="flex flex-col small:flex-row small:items-start pt-6 pb-24 content-container">
-      <RefinementList sortBy={sortBy || "created_at"} />
+    <div className="flex flex-col small:flex-row small:items-start pt-6 pb-24 px-4 sm:px-16 content-container">
       <div className="w-full">
-        <div className="mb-8 text-2xl-semi">
-          <h1>{collection.title}</h1>
+        <div className="w-full flex items-center justify-between pb-4 my-2">
+          <h3 className="uppercase text-[1.5rem] font-sans font-[400] text-black">
+            {collection.title}
+          </h3>
+          <RefinementList sortBy={sortBy || "created_at"} />
         </div>
         <Suspense fallback={<SkeletonProductGrid />}>
           <PaginatedProducts

@@ -7,33 +7,65 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 const Top = () => {
   const strings = [
     {
-      url: "Flat 10% Off on all baseball hats, use code: HUMAN10",
+      url: "⏪ Flat 10% Off on all baseball hats, use code: HUMAN10",
       color: "rgb(143,44,55)",
     },
     {
-      url: "Free international shipping on orders over INR 2,000.",
+      url: "📦 Free international shipping on orders over INR 2,000.",
       color: "rgb(83,84,53)",
     },
     {
-      url: "Flat 50% Off on your first order, use code: FIRST50",
+      url: "⏪ Flat 50% Off on your first order, use code: FIRST50",
       color: "rgb(238,214,150)",
     },
     {
-      url: "Free domestic shipping on all orders.",
+      url: "📦 Free domestic shipping on all orders.",
       color: "rgb(17,17,17)",
     },
   ]
   const [currentIndex, setCurrentIndex] = React.useState(1)
+  const intervalRef = React.useRef<NodeJS.Timeout | null>(null)
+  const hoverRef = React.useRef<HTMLDivElement | null>(null)
 
   React.useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % strings.length)
-    }, 5000)
+    const startInterval = () => {
+      intervalRef.current = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % strings.length);
+      }, 5000);
+    };
+
+    const stopInterval = () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null; // Ensure the interval reference is cleared
+      }
+    };
+
+    startInterval();
+
+    const handleMouseEnter = () => {
+      stopInterval();
+    };
+
+    const handleMouseLeave = () => {
+      startInterval();
+    };
+
+    const hoverElement = hoverRef.current;
+
+    if (hoverElement) {
+      hoverElement.addEventListener("mouseenter", handleMouseEnter);
+      hoverElement.addEventListener("mouseleave", handleMouseLeave);
+    }
 
     return () => {
-      clearInterval(interval)
-    }
-  }, [strings.length])
+      stopInterval();
+      if (hoverElement) {
+        hoverElement.removeEventListener("mouseenter", handleMouseEnter);
+        hoverElement.removeEventListener("mouseleave", handleMouseLeave);
+      }
+    };
+  }, [strings.length]);
 
   const next = () => {
     if (currentIndex === strings.length - 1) {
@@ -55,6 +87,7 @@ const Top = () => {
 
   return (
     <div
+      ref={hoverRef}
       style={{
         backgroundColor: `${strings[currentIndex].color}`,
         color:
@@ -62,7 +95,7 @@ const Top = () => {
             ? "black"
             : "white",
       }}
-      className={`h-[32px] transition-all duration-500 w-full flex gap-16 items-center justify-center text-[11px] font-[300] uppercase relative`}
+      className={`h-[32px] transition-all duration-500 w-full flex gap-16 items-center justify-center text-[12px] font-[300] relative`}
     >
       <div className="w-[600px] relative flex items-center justify-center">
         <button onClick={prev} className="absolute px-4 left-0">
@@ -74,6 +107,7 @@ const Top = () => {
           exit={{ marginTop: "-70px" }}
           transition={{ duration: 0.5 }}
           key={selectedString}
+          className=""
         >
           {selectedString}
         </motion.span>
@@ -81,7 +115,7 @@ const Top = () => {
           <SlArrowLeft className="rotate-180 text-[12px]" />
         </button>
       </div>
-      <div className="absolute right-0 h-full hidden md:block px-6">
+      <div className="absolute right-0 h-full hidden md:block pr-16">
         <div className="flex gap-4 h-full items-center text-[11px]">
           <LocalizedClientLink
             href="/help"

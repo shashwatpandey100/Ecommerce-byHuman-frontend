@@ -54,7 +54,7 @@ const Item: React.FC<AccordionItemProps> = ({
         className
       )}
     >
-      {/* <AccordionPrimitive.Header className="px-1">
+      <AccordionPrimitive.Header className="px-1">
         <div className="flex flex-col">
           <div className="flex w-full items-center justify-between">
             <div className="flex items-center gap-4">
@@ -70,8 +70,8 @@ const Item: React.FC<AccordionItemProps> = ({
             </Text>
           )}
         </div>
-      </AccordionPrimitive.Header> */}
-      {/* <AccordionPrimitive.Content
+      </AccordionPrimitive.Header>
+      <AccordionPrimitive.Content
         forceMount={forceMountContent}
         className={clx(
           "radix-state-closed:animate-accordion-close radix-state-open:animate-accordion-open radix-state-closed:pointer-events-none px-1"
@@ -81,7 +81,7 @@ const Item: React.FC<AccordionItemProps> = ({
           {description && <Text>{description}</Text>}
           <div className="w-full">{children}</div>
         </div>
-      </AccordionPrimitive.Content> */}
+      </AccordionPrimitive.Content>
     </AccordionPrimitive.Item>
   )
 }
