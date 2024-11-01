@@ -33,11 +33,11 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
         className="flex flex-col small:flex-row small:items-start relative bg-[#fbf7f45a]"
         data-testid="product-container"
       >
-        <div className="block w-[860px] overflow-hidden sticky top-[60px]">
+        <div className="block w-full md:w-[860px] md:overflow-hidden relative md:sticky md:top-[60px]">
           <ImageGallery images={product?.images || []} />
         </div>
-        <div className="flex flex-col w-[calc(100vw-860px)] px-6 gap-y-12">
-          <div className="flex flex-col w-full py-8 pb-8 gap-y-6">
+        <div className="flex flex-col w-full md:w-[calc(100vw-860px)] px-6 gap-y-12">
+          <div className="flex flex-col w-full pt-8 gap-y-6">
             <ProductInfo product={product} />
           </div>
           <ProductOnboardingCta />

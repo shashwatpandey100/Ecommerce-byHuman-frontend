@@ -137,7 +137,7 @@ export default function ProductActions({
 
   return (
     <>
-      <div className="flex flex-col gap-y-2 font-mono" ref={actionsRef}>
+      <div className="flex flex-col gap-y-2 font-mono mt-8" ref={actionsRef}>
         <div className="pb-8 border-b border-[#9fa0a5]">
           {product.variants.length > 1 && (
             <div className="flex flex-col gap-y-4">

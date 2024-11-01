@@ -32,7 +32,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
       style={{
         backgroundImage: `url(${images[current].url})`,
       }}
-      className="flex items-start h-[calc(100vh-60px)] w-full bg-cover bg-center bg-no-repeat relative"
+      className="flex items-start h-[50vh] md:h-[calc(100vh-60px)] w-full bg-cover bg-center bg-no-repeat relative mb-[80px] md:mb-0"
     >
       <button
         onClick={next}
@@ -42,11 +42,11 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
       </button>
       <button
         onClick={prev}
-        className="bg-white rounded-full h-[32px] aspect-square flex items-center justify-center absolute left-[calc(100px+0.5rem)] top-1/2 -translate-y-1/2"
+        className="bg-white rounded-full h-[32px] aspect-square flex items-center justify-center absolute left-4 md:left-[calc(100px+0.5rem)] top-1/2 -translate-y-1/2"
       >
         <FaArrowRight className="text-[0.8rem] text-black/80 rotate-180" />
       </button>
-      <div className="flex flex-col flex-1 gap-y-1 absolute top-1/2 -translate-y-1/2 left-4 max-h-[600px] overflow-y-scroll">
+      <div className="flex flex-row md:flex-col flex-1 gap-y-1 absolute bottom-[-90px] md:top-1/2 md:-translate-y-1/2 md:left-4 max-h-[600px] w-full md:w-max overflow-scroll">
         {images.map((image, index) => {
           return (
             <div
