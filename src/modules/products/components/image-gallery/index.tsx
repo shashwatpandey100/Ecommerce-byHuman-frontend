@@ -32,7 +32,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
       style={{
         backgroundImage: `url(${images[current].url})`,
       }}
-      className="flex items-start h-[50vh] md:h-[calc(100vh-60px)] w-full bg-cover bg-center bg-no-repeat relative mb-[80px] md:mb-0"
+      className="flex items-start h-[50vh] md:h-[calc(100vh-60px)] w-full bg-cover bg-bottom bg-no-repeat relative mb-[80px] md:mb-0"
     >
       <button
         onClick={next}

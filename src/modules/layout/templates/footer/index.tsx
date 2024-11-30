@@ -44,18 +44,6 @@ export default async function Footer() {
                   {collection.title}
                 </LocalizedClientLink>
               ))}
-            <LocalizedClientLink
-              href={`/collections/`}
-              className="hover:underline text-[0.95rem] font-[300] text-black/70"
-            >
-              Beanies
-            </LocalizedClientLink>
-            <LocalizedClientLink
-              href={`/collections/`}
-              className="hover:underline text-[0.95rem] font-[300] text-black/70"
-            >
-              Sun Hats
-            </LocalizedClientLink>
           </div>
           <div className="flex flex-col gap-1">
             <h3 className="uppercase text-[1.05rem] font-[500] text-black mb-3">
@@ -78,41 +66,6 @@ export default async function Footer() {
               className="hover:underline text-[0.95rem] font-[300] text-black/70"
             >
               Cookie Policy
-            </LocalizedClientLink>
-            <LocalizedClientLink
-              href={`/collections/`}
-              className="hover:underline text-[0.95rem] font-[300] text-black/70"
-            >
-              Careers
-            </LocalizedClientLink>
-            <LocalizedClientLink
-              href={`/collections/`}
-              className="hover:underline text-[0.95rem] font-[300] text-black/70"
-            >
-              Blogs
-            </LocalizedClientLink>
-          </div>
-          <div className="flex flex-col gap-1">
-            <h3 className="uppercase text-[1.05rem] font-[500] text-black mb-3">
-              Get Help
-            </h3>
-            <LocalizedClientLink
-              href={`/collections/`}
-              className="hover:underline text-[0.95rem] font-[300] text-black/70"
-            >
-              FAQs
-            </LocalizedClientLink>
-            <LocalizedClientLink
-              href={`/collections/`}
-              className="hover:underline text-[0.95rem] font-[300] text-black/70"
-            >
-              Order Tracking
-            </LocalizedClientLink>
-            <LocalizedClientLink
-              href={`/collections/`}
-              className="hover:underline text-[0.95rem] font-[300] text-black/70"
-            >
-              Make a Return
             </LocalizedClientLink>
             <LocalizedClientLink
               href={`/collections/`}
@@ -152,13 +105,18 @@ export default async function Footer() {
             <LocalizedClientLink
               href={`/collections/`}
               className="hover:underline text-[0.95rem] font-[300] text-black/70"
-            >Facebook</LocalizedClientLink>
+            >
+              Facebook
+            </LocalizedClientLink>
             <LocalizedClientLink
               href={`/collections/`}
               className="hover:underline text-[0.95rem] font-[300] text-black/70"
             >
               Youtube
             </LocalizedClientLink>
+          </div>
+          <div className="flex flex-col gap-1">
+            
           </div>
         </div>
         <div className="min-h-[78px] w-full border-t border-black/50 flex flex-col sm:flex-row justify-between items-center py-6 gap-y-4 px-4 sm:px-16 text-[0.85rem]">
