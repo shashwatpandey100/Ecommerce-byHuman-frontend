@@ -30,6 +30,7 @@ export default async function Home({
 }: {
   params: { countryCode: string }
 }) {
+ 
   const region = await getRegion(countryCode)
 
   if (!region) {
@@ -41,6 +42,8 @@ export default async function Home({
   return (
     <>
       <Hero />
+     
+
       <div className="pb-20 md:pb-24">
         <div className="w-full flex flex-col items-center pt-16 md:pt-16">
           <span className="italic text-[1.45rem] font-[300] font-times">
@@ -48,20 +51,6 @@ export default async function Home({
           </span>
           <h3 className="uppercase text-[2.35rem]">Categories</h3>
           <ul className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-12 px-2.5 md:px-12">
-            <div
-              style={{
-                backgroundImage:
-                  "linear-gradient(to top, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.05)), url(https://imageseu.urbndata.com/is/image/UrbanOutfittersEU/0214341180325_050_d?$xlarge$&fit=constrain&fmt=webp&qlt=80&wid=1080)",
-              }}
-              className="h-[450px] md:h-[540px] bg-cover bg-top bg-no-repeat flex flex-col items-center justify-center relative"
-            >
-              <Link
-                href="/collections/t-shirts"
-                className="absolute bottom-4 left-4 border border-white bg-white hover:bg-transparent text-[0.95rem] text-black/80 hover:text-white transition-all duration-200 px-6 py-1.5"
-              >
-                Shop T-shirts
-              </Link>
-            </div>
             <div
               style={{
                 backgroundImage:
@@ -76,6 +65,22 @@ export default async function Home({
                 Shop Baseball Caps
               </Link>
             </div>
+
+            <div
+              style={{
+                backgroundImage:
+                  "linear-gradient(to top, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.05)), url(https://imageseu.urbndata.com/is/image/UrbanOutfittersEU/0214341180325_050_d?$xlarge$&fit=constrain&fmt=webp&qlt=80&wid=1080)",
+              }}
+              className="h-[450px] md:h-[540px] bg-cover bg-top bg-no-repeat flex flex-col items-center justify-center relative"
+            >
+              <Link
+                href="/collections/t-shirts"
+                className="absolute bottom-4 left-4 border border-white bg-white hover:bg-transparent text-[0.95rem] text-black/80 hover:text-white transition-all duration-200 px-6 py-1.5"
+              >
+                Shop T-shirts
+              </Link>
+            </div>
+
             <div
               style={{
                 backgroundImage:

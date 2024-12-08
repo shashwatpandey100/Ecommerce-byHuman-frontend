@@ -71,6 +71,10 @@ module.exports = {
         ],
       },
       keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
         ring: {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
@@ -155,7 +159,10 @@ module.exports = {
         enter: "enter 200ms ease-out",
         "slide-in": "slide-in 1.2s cubic-bezier(.41,.73,.51,1.02)",
         leave: "leave 150ms ease-in forwards",
+        marquee: "marquee 50s linear infinite",
+        "marquee-paused": "marquee 50s linear infinite paused",
       },
+  
     },
   },
   plugins: [require("tailwindcss-radix")()],

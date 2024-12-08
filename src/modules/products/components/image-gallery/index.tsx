@@ -23,7 +23,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
     )
   }
 
-  const go = (index: number) => {
+  const go = (index: number) => { 
     setCurrent(index)
   }
 
@@ -46,7 +46,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
       >
         <FaArrowRight className="text-[0.8rem] text-black/80 rotate-180" />
       </button>
-      <div className="flex flex-row md:flex-col flex-1 gap-y-1 absolute bottom-[-90px] md:top-1/2 md:-translate-y-1/2 md:left-4 max-h-[600px] w-full md:w-max overflow-scroll">
+      <div className="flex flex-row md:flex-col flex-1 gap-y-1 absolute bottom-[-90px] md:top-1/2 md:-translate-y-1/2 md:left-4 max-h-[600px] w-full md:w-max overflow-auto">
         {images.map((image, index) => {
           return (
             <div
@@ -76,3 +76,4 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
 }
 
 export default ImageGallery
+   

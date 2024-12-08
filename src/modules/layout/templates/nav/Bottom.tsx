@@ -3,9 +3,9 @@ import { Suspense } from "react"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
-import { SlBag } from "react-icons/sl"
 import { LiaSearchSolid, LiaUserSolid } from "react-icons/lia"
 import { listRegions } from "@lib/data"
+import { FaCartShopping } from "react-icons/fa6";
 
 const Bottom = async () => {
   const regions = await listRegions().then((regions) => regions)
@@ -28,11 +28,12 @@ const Bottom = async () => {
               className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
               data-testid="nav-store-link"
             >
-              <img
+              {/* <img
                 src="https://res.cloudinary.com/dw0bwetr1/image/upload/v1729230045/logo-black_iobotj.png"
                 alt="byHumans"
                 className="w-max object-cover object-center h-[36px]"
-              />
+              /> */}
+              <span className="font-bold tracking-[0.05rem] text-2xl">BY HUMANS</span>
             </LocalizedClientLink>
           </div>
 
@@ -48,14 +49,15 @@ const Bottom = async () => {
                   <LiaSearchSolid className="text-[24px] transform scale-x-[-1]" />
                 </LocalizedClientLink>
               )}
-              <Suspense
+               <Suspense
                 fallback={
                   <LocalizedClientLink
                     className="hover:text-ui-fg-base flex gap-1.5 relative"
                     href="/cart"
                     data-testid="nav-cart-link"
                   >
-                    <SlBag className="mt-1 text-[24px]" />
+                    
+                    <FaCartShopping className="mt-1 text-[24px]"/>
                     <span className="absolute -top-2 -right-2 bg-[#4D3B35] rounded-full text-[10px] text-white h-[16px] aspect-square flex items-center justify-center">
                       0
                     </span>
@@ -63,7 +65,7 @@ const Bottom = async () => {
                 }
               >
                 <CartButton />
-              </Suspense>
+              </Suspense> 
               <LocalizedClientLink
                 className="hover:text-ui-fg-base"
                 href="/account"
