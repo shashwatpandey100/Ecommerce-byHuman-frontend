@@ -74,6 +74,12 @@ export default async function Footer() {
           About Us
         </LocalizedClientLink>
         <LocalizedClientLink
+          href="/contact-us"
+          className="hover:underline text-[0.95rem] font-[300] text-base/70"
+        >
+          Contact Us
+        </LocalizedClientLink>
+        <LocalizedClientLink
           href="/products"
           className="hover:underline text-[0.95rem] font-[300] text-base/70"
         >
@@ -84,12 +90,6 @@ export default async function Footer() {
           className="hover:underline text-[0.95rem] font-[300] text-base/70"
         >
           Cart
-        </LocalizedClientLink>
-        <LocalizedClientLink
-          href="/blog"
-          className="hover:underline text-[0.95rem] font-[300] text-base/70"
-        >
-          Blog
         </LocalizedClientLink>
       </div>
 
@@ -232,13 +232,13 @@ export default async function Footer() {
           </div> */}
         <div className="min-h-[78px] w-full border-t border-black/50 flex flex-col sm:flex-row justify-between items-center py-6 gap-y-4 px-4 sm:px-16 text-[0.85rem]">
           <p className="w-full sm:w-max flex justify-between gap-3 text-[0.85rem] font-[500]">
-            <LocalizedClientLink href="#" className="hover:underline">
+            <LocalizedClientLink href="/privacy" className="hover:underline">
               Privacy Policy
             </LocalizedClientLink>
-            <LocalizedClientLink href="#" className="hover:underline">
+            <LocalizedClientLink href="/terms-and-conditions" className="hover:underline">
               Terms and Conditions
             </LocalizedClientLink>
-            <LocalizedClientLink href="#" className="hover:underline">
+            <LocalizedClientLink href="/help" className="hover:underline">
               Help
             </LocalizedClientLink>
           </p>

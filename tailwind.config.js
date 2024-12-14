@@ -159,7 +159,7 @@ module.exports = {
         enter: "enter 200ms ease-out",
         "slide-in": "slide-in 1.2s cubic-bezier(.41,.73,.51,1.02)",
         leave: "leave 150ms ease-in forwards",
-        marquee: "marquee 50s linear infinite",
+        marquee: "marquee 180s linear infinite",
         "marquee-paused": "marquee 50s linear infinite paused",
       },
   
