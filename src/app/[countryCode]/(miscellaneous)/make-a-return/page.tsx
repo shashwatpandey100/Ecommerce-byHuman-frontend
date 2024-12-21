@@ -2,7 +2,7 @@ import React from "react"
 
 const page = () => {
   return (
-    <div className="h-max bg-[rgba(0,0,0,0.02)] flex flex-col px-[90px] pb-[100px] font-[400] text-[17px]">
+    <div className="h-max bg-[rgba(0,0,0,0.02)] flex flex-col px-[90px] pb-[100px] font-[400] text-[15px]">
       <div className="max-w-[78%]">
         <h2 className="uppercase text-[30px] text-black font-[400] mt-[50px] mb-[20px]">
           About Us

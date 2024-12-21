@@ -6,7 +6,7 @@ import { LiaTimesSolid } from "react-icons/lia";
 
 const Hero: React.FC = () => {
   const images: string[] = [
-    "https://assets.vogue.com/photos/5d110e7747f2c2f086fbfea9/master/w_2240,c_limit/_VIE5791.jpg",
+    "https://res.cloudinary.com/dw0bwetr1/image/upload/v1734797574/Vaani_01_jq4pdu.png",
     // "https://res.cloudinary.com/dw0bwetr1/image/upload/v1729593535/hero1_xp8kja.jpg",
     // "https://res.cloudinary.com/dw0bwetr1/image/upload/v1729670185/hero3_yygdfd.jpg",
     // "https://res.cloudinary.com/dw0bwetr1/image/upload/v1729670185/hero2_qklexn.jpg"
@@ -89,11 +89,8 @@ const Hero: React.FC = () => {
           <div
             style={{
               background: `url(${images[0]})`,
-              backgroundPosition: "top",
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
             }}
-            className="bg-cover w-full h-[450px] md:h-[620px]"
+            className="bg-cover w-full h-[450px] md:h-[620px] bg-no-repeat bg-center"
           ></div>
           <div className="bg-[#fff8f0] flex items-center justify-center w-full h-max md:h-[620px]">
             <div className="px-8 py-16 md:p-16 w-full flex flex-col items-center justify-center">

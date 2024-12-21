@@ -120,7 +120,7 @@ export default async function Home({
             </div>
           </div>
           <div className="flex md:flex-row-reverse flex-col">
-            <div className="w-full h-[40vh] md:h-[80vh] bg-cover bg-center bg-no-repeat bg-[url(https://www.chanel.com/images/q_auto:good,f_auto,fl_lossy,dpr_1.1/w_1280/FSH-1719480834410-bagsd03.jpg)]"></div>
+            <div className="w-full h-[40vh] md:h-[80vh] bg-cover bg-center bg-no-repeat bg-[url(https://res.cloudinary.com/dw0bwetr1/image/upload/v1734797278/Rizz_detailed_1_1_j6nuww.png)]"></div>
             <div className="w-full h-max md:h-[80vh] bg-[#fff8f0] flex items-center justify-center">
               <div className="w-full h-full bg-[#fff8f0] flex flex-col items-center justify-center">
                 <div className="px-8 py-16 md:p-16 w-full">
