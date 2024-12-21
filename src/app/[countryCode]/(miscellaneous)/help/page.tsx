@@ -11,7 +11,7 @@ const page = () => {
         <p>
           Our brand is a product of human innovation and creativity, built with
           passion, dedication, and a commitment to excellence. <br /><br />
-          We believe that headwear is more than just an accessory—it's a
+          We believe that headwear is more than just an accessory—it&apos;s a
           statement, a shield, and a mark of identity for humans seeking
           individuality and self-expression. Each piece we create is infused
           with a story, a purpose, and a desire to inspire confidence in those
@@ -24,7 +24,7 @@ const page = () => {
       </h2>
       The name BY HUMANS was inspired by a message sent into space. <br /> In 2018,
       when SpaceX launched a Tesla Roadster, it carried a hidden inscription on
-      its circuit board that read, "Made on Earth by humans." This phrase
+      its circuit board that read, &quot;Made on Earth by humans.&quot; This phrase
       captured the essence of human creativity, daring, and the drive to reach
       beyond. <br /> Just like that message, BY HUMANS also embodies the spirit of
       innovation and creativity, reminding us of what we can achieve together
@@ -43,7 +43,7 @@ const page = () => {
       hat is crafted with the idea of embracing human expression, individuality,
       and the joy of being unapologetically yourself. <br /><br /> 
       We blend comfort, style,
-      and quality to create pieces that humans can count on—whether you're out
+      and quality to create pieces that humans can count on—whether you&apos;re out
       exploring the world, creating art, building dreams, or simply embracing
       the beauty of everyday life. <br />
       At BY HUMANS, we celebrate diversity,
