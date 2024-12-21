@@ -14,7 +14,7 @@ const Bottom = async () => {
     <div
       className={`sticky top-0 inset-x-0 z-50 bg-white text-black group`}
     >
-      <div className="h-[60px] px-4 md:px-16 mx-auto duration-200">
+      <div className="h-[76px] px-4 md:px-16 mx-auto duration-200">
         <nav className="txt-xsmall-plus flex items-center justify-between w-full h-full text-small-regular">
           <div className="flex-1 basis-0 h-full flex items-center">
             <div className="h-full">

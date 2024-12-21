@@ -74,6 +74,12 @@ export default async function Footer() {
           About Us
         </LocalizedClientLink>
         <LocalizedClientLink
+          href="/make-a-return"
+          className="hover:underline text-[0.95rem] font-[300] text-base/70"
+        >
+          Make a Return
+        </LocalizedClientLink>
+        <LocalizedClientLink
           href="/contact-us"
           className="hover:underline text-[0.95rem] font-[300] text-base/70"
         >

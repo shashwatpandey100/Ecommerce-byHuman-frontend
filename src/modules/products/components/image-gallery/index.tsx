@@ -30,7 +30,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
   return (
     <div
       style={{
-        backgroundImage: `url(${images[current].url})`,
+        backgroundImage: `url(${images[current]?.url})`,
       }}
       className="flex items-start h-[50vh] md:h-[calc(100vh-60px)] w-full bg-cover bg-bottom bg-no-repeat relative mb-[80px] md:mb-0"
     >
@@ -53,12 +53,12 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
               onClick={() => {
                 go(index)
               }}
-              key={image.id}
+              key={image?.id}
               className={`relative h-[80px] ${current === index && 'border border-blue-500'} aspect-square cursor-pointer`}
-              id={image.id}
+              id={image?.id}
             >
               <Image
-                src={image.url}
+                src={image?.url}
                 priority={index <= 2 ? true : false}
                 className="absolute inset-0 aspect-square h-[80px]"
                 alt={`Product image ${index + 1}`}
