@@ -88,9 +88,9 @@ const Hero: React.FC = () => {
         <div className="flex flex-col md:flex-row h-max w-full">
           <div
             style={{
-              background: `url(${images[0]})`,
+              backgroundImage: `url(${images[0]})`,
             }}
-            className="bg-cover w-full h-[450px] md:h-[620px] bg-no-repeat bg-center"
+            className="w-full h-[450px] md:h-[620px] bg-cover bg-no-repeat bg-center"
           ></div>
           <div className="bg-[#fff8f0] flex items-center justify-center w-full h-max md:h-[620px]">
             <div className="px-8 py-16 md:p-16 w-full flex flex-col items-center justify-center">

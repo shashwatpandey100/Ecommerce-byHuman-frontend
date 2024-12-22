@@ -86,7 +86,7 @@ export default async function Home({
                 backgroundImage:
                   "linear-gradient(to top, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.05)), url(https://imageseu.urbndata.com/is/image/UrbanOutfittersEU/0251647150024_061_b?$xlarge$&fit=constrain&fmt=webp&qlt=80&wid=1080)",
               }}
-              className="h-[450px] md:h-[540px] bg-cover bg-top bg-no-repeat flex flex-col items-center justify-center relative"
+              className="h-[450px] md:h-[540px] bg-cover bg-top flex flex-col items-center justify-center relative"
             >
               <Link
                 href="/collections/trucker-caps"
@@ -122,12 +122,9 @@ export default async function Home({
           <div className="flex md:flex-row-reverse flex-col">
             <div
               style={{
-                background: `url(https://res.cloudinary.com/dw0bwetr1/image/upload/v1734797278/Rizz_detailed_1_1_j6nuww.png)`,
-                backgroundPositionY: "bottom",
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
+                backgroundImage: `url(https://res.cloudinary.com/dw0bwetr1/image/upload/v1734797278/Rizz_detailed_1_1_j6nuww.png)`,
               }}
-            className="w-full h-[40vh] md:h-[80vh] bg-cover bg-center bg-no-repeat"></div>
+            className="w-full h-[40vh] md:h-[80vh] bg-cover bg-no-repeat bg-center"></div>
             <div className="w-full h-max md:h-[80vh] bg-[#fff8f0] flex items-center justify-center">
               <div className="w-full h-full bg-[#fff8f0] flex flex-col items-center justify-center">
                 <div className="px-8 py-16 md:p-16 w-full">
