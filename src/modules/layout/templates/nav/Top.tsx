@@ -22,8 +22,8 @@ const Top = () => {
   return (
     <div
       style={{
-        backgroundColor: "#fff8f0", // Fixed background color
-        color: "#000000", // Fixed text color
+        backgroundColor: "#000000", // Fixed background color
+        color: "#ffffff", // Fixed text color
       }}
       className="h-[32px] w-full flex items-center overflow-hidden relative"
     >

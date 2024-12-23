@@ -2,17 +2,18 @@ import React from "react"
 
 const page = () => {
   return (
-    <section className="flex w-full h-[calc(100vh-70px)] bg-[rgba(251,251,251)]">
-      <div className="w-[40%] flex items-center justify-center">
-        <img
-          src="https://res.cloudinary.com/dw0bwetr1/image/upload/v1734843513/srishti_01_atntbe.png"
-          alt="About Us"
-          className="max-h-[70vh] w-auto"
-        />
+    <section className="flex flex-col px-6 py-8 md:py-0 md:px-0 md:flex-row w-full h-max md:h-[calc(100vh-70px)] bg-[rgba(251,251,251)]">
+      <div className="w-full md:w-[40%] px-6 flex items-center justify-center">
+        <div
+          style={{
+            backgroundImage: `url(https://res.cloudinary.com/dw0bwetr1/image/upload/v1734843513/srishti_01_atntbe.png)`,
+          }}
+          className="h-[50vh] md:h-[70vh] w-full md:w-[65%] bg-cover bg-bottom bg-no-repeat"
+        ></div>
       </div>
-      <div className="w-[60%] h-full flex flex-col justify-center pr-[50px] pb-[100px] font-[400] text-[14px]">
-        <div className="max-w-[94%]">
-          <p className="mt-[90px]">
+      <div className="w-full md:w-[60%] h-full flex flex-col justify-center md:pr-[50px] pb-[40px] md:pb-[100px] font-[400] text-[14px]">
+        <div className="w-full md:max-w-[94%]">
+          <p className="mt-[40px] md:mt-[90px]">
             Our brand is a product of human innovation and creativity, built
             with passion, dedication, and a commitment to excellence. <br />
             <br />
