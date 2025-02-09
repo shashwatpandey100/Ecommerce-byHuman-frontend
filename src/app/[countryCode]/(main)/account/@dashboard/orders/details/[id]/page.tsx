@@ -8,6 +8,13 @@ type Props = {
   params: { id: string }
 }
 
+// Add this function to generate static params
+export async function generateStaticParams() {
+  // If you can't pre-fetch all order IDs, you can return an empty array
+  // This means only statically generated pages will work during export
+  return []
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const order = await retrieveOrder(params.id).catch(() => null)
 

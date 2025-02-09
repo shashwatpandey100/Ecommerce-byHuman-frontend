@@ -16,7 +16,7 @@ export default async function Footer() {
         <p className="flex flex-col gap-6 w-full sm:w-1/2">
           <span className="text-[1rem] font-[300]">
             We want you to love everything about getting Away—which is why we
-            offer free returns and exchanges on unused items for the first 100
+            offer free returns and exchanges on unused items for the first 5
             days.
           </span>
           <LocalizedClientLink href="#" className="uppercase text-[0.95rem]">
@@ -74,18 +74,6 @@ export default async function Footer() {
           About Us
         </LocalizedClientLink>
         <LocalizedClientLink
-          href="/make-a-return"
-          className="hover:underline text-[0.95rem] font-[300] text-base/70"
-        >
-          Make a Return
-        </LocalizedClientLink>
-        <LocalizedClientLink
-          href="/contact-us"
-          className="hover:underline text-[0.95rem] font-[300] text-base/70"
-        >
-          Contact Us
-        </LocalizedClientLink>
-        <LocalizedClientLink
           href="/products"
           className="hover:underline text-[0.95rem] font-[300] text-base/70"
         >
@@ -96,6 +84,12 @@ export default async function Footer() {
           className="hover:underline text-[0.95rem] font-[300] text-base/70"
         >
           Cart
+        </LocalizedClientLink>
+        <LocalizedClientLink
+          href="/blog"
+          className="hover:underline text-[0.95rem] font-[300] text-base/70"
+        >
+          Blog
         </LocalizedClientLink>
       </div>
 
@@ -236,19 +230,21 @@ export default async function Footer() {
               
             </div>
           </div> */}
-        <div className="h-[36px] w-full border-t border-black/50 flex flex-col sm:flex-row justify-between items-center gap-y-4 px-4 sm:px-16 text-[0.8rem]">
-          <p className="w-full sm:w-max flex justify-between gap-3 text-[0.85rem] font-[400]">
-            <LocalizedClientLink href="/privacy" className="hover:underline">
+        <div className="min-h-[78px] w-full border-t border-black/50 flex flex-col sm:flex-row justify-between items-center py-6 gap-y-4 px-4 sm:px-16 text-[0.85rem]">
+          <p className="w-full sm:w-max flex justify-between gap-3 text-[0.85rem] font-[500]">
+            <LocalizedClientLink href="#" className="hover:underline">
               Privacy Policy
             </LocalizedClientLink>
-            <LocalizedClientLink href="/terms-and-conditions" className="hover:underline">
+            <LocalizedClientLink href="#" className="hover:underline">
               Terms and Conditions
             </LocalizedClientLink>
-            <LocalizedClientLink href="/help" className="hover:underline">
+            <LocalizedClientLink href="#" className="hover:underline">
               Help
             </LocalizedClientLink>
           </p>
           <p className="font-[500]">© 2024 ByHuman.</p>
+          <p className="font-[500]">Managed and Developed By</p>
+          
         </div>
       </footer>
     </>

@@ -7,6 +7,7 @@ const store = require("./store.config.json")
 const nextConfig = withStoreConfig({
   features: store.features,
   reactStrictMode: true,
+  // Remove the output line to enable server-side features
   images: {
     remotePatterns: [
       {

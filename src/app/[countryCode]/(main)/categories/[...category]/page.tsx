@@ -13,29 +13,48 @@ type Props = {
   }
 }
 
-export async function generateStaticParams() {
-  const product_categories = await listCategories()
+type StaticParams = {
+  countryCode: string
+  category: string[]
+}[]
 
-  if (!product_categories) {
-    return []
-  }
+export async function generateStaticParams(): Promise<StaticParams> {
+  try {
+    const product_categories = await listCategories()
+    console.log("Categories:", product_categories)
 
-  const countryCodes = await listRegions().then((regions) =>
-    regions?.map((r) => r.countries.map((c) => c.iso_2)).flat()
-  )
+    if (!product_categories || product_categories.length === 0) return []
 
-  const categoryHandles = product_categories.map((category) => category.handle)
+    const countryCodes: string[] | undefined = await listRegions().then(
+      (regions) => {
+        console.log("Regions:", regions)
+        return regions?.flatMap((r) => r.countries.map((c) => c.iso_2))
+      }
+    )
 
-  const staticParams = countryCodes
-    ?.map((countryCode) =>
+    console.log("Country Codes:", countryCodes)
+
+    if (!countryCodes || countryCodes.length === 0) return []
+
+    const categoryHandles: string[] = product_categories.map(
+      (category) => category.handle
+    )
+    console.log("Category Handles:", categoryHandles)
+
+    const staticParams: StaticParams = countryCodes.flatMap((countryCode) =>
       categoryHandles.map((handle) => ({
         countryCode,
         category: [handle],
       }))
     )
-    .flat()
 
-  return staticParams
+    console.log("Generated Params:", staticParams)
+
+    return staticParams
+  } catch (error) {
+    console.error("Error in generateStaticParams:", error)
+    return []
+  }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

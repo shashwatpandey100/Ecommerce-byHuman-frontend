@@ -11,37 +11,51 @@ import {
 import { Region } from "@medusajs/medusa"
 import ProductTemplate from "@modules/products/templates"
 
+type StaticParams = {
+  countryCode: string
+  handle: string
+}[]
+
 type Props = {
   params: { countryCode: string; handle: string }
 }
 
-export async function generateStaticParams() {
-  const countryCodes = await listRegions().then((regions) =>
-    regions?.map((r) => r.countries.map((c) => c.iso_2)).flat()
-  )
-
-  if (!countryCodes) {
-    return null
-  }
-
-  const products = await Promise.all(
-    countryCodes.map((countryCode) => {
-      return getProductsList({ countryCode })
+export async function generateStaticParams(): Promise<StaticParams> {
+  try {
+    const countryCodes: string[] | undefined = await listRegions().then((regions) => {
+      console.log("Regions:", regions)
+      return regions?.flatMap((r) => r.countries.map((c) => c.iso_2))
     })
-  ).then((responses) =>
-    responses.map(({ response }) => response.products).flat()
-  )
 
-  const staticParams = countryCodes
-    ?.map((countryCode) =>
+    console.log("Country Codes:", countryCodes)
+
+    if (!countryCodes || countryCodes.length === 0) return []
+
+    const products = await Promise.all(
+      countryCodes.map(async (countryCode) => {
+        const response = await getProductsList({ countryCode })
+        return response?.response?.products ?? []
+      })
+    ).then((responses) => responses.flat())
+
+    console.log("Products:", products)
+
+    if (!products || products.length === 0) return []
+
+    const staticParams: StaticParams = countryCodes.flatMap((countryCode) =>
       products.map((product) => ({
         countryCode,
         handle: product.handle,
       }))
     )
-    .flat()
 
-  return staticParams
+    console.log("Generated Params:", staticParams)
+
+    return staticParams
+  } catch (error) {
+    console.error("Error in generateStaticParams:", error)
+    return []
+  }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

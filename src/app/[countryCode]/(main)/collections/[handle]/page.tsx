@@ -19,30 +19,46 @@ type Props = {
 
 export const PRODUCT_LIMIT = 12
 
-export async function generateStaticParams() {
-  const { collections } = await getCollectionsList()
+type StaticParams = {
+  countryCode: string
+  handle: string
+}[]
 
-  if (!collections) {
-    return []
-  }
+export async function generateStaticParams(): Promise<StaticParams> {
+  try {
+    const { collections } = await getCollectionsList()
+    console.log("Collections:", collections)
 
-  const countryCodes = await listRegions().then((regions) =>
-    regions?.map((r) => r.countries.map((c) => c.iso_2)).flat()
-  )
+    if (!collections || collections.length === 0) return []
 
-  const collectionHandles = collections.map((collection) => collection.handle)
+    const countryCodes: string[] | undefined = await listRegions().then((regions) => {
+      console.log("Regions:", regions)
+      return regions?.flatMap((r) => r.countries.map((c) => c.iso_2))
+    })
 
-  const staticParams = countryCodes
-    ?.map((countryCode) =>
+    console.log("Country Codes:", countryCodes)
+
+    if (!countryCodes || countryCodes.length === 0) return []
+
+    const collectionHandles: string[] = collections.map((collection) => collection.handle)
+    console.log("Collection Handles:", collectionHandles)
+
+    const staticParams: StaticParams = countryCodes.flatMap((countryCode) =>
       collectionHandles.map((handle) => ({
         countryCode,
         handle,
       }))
     )
-    .flat()
 
-  return staticParams
+    console.log("Generated Params:", staticParams)
+
+    return staticParams
+  } catch (error) {
+    console.error("Error in generateStaticParams:", error)
+    return []
+  }
 }
+
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const collection = await getCollectionByHandle(params.handle)
